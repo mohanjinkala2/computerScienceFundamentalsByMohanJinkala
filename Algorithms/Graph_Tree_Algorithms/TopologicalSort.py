@@ -33,7 +33,7 @@ def TopologicalSortByDfs(Graph,vertices):
             for neighboor in Graph[vertice]:
                 if visit[neighboor]==0:
                     dfs(neighboor)
-                elif visited[neighbor] == 1:# Found a back edge → Cycle detected
+                elif visit[neighbor] == 1:# Found a back edge → Cycle detected
                     has_cycle[0] = True
                     return
             stack.append(vertice)
