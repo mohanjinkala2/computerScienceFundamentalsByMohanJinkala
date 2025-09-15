@@ -24,12 +24,18 @@ def buildGraph(edgesArray):
         return graph
 def TopologicalSortByDfs(Graph,vertices):
         stack=[]
+        has_cycle=[False]
         visit=[0 for i in range(vertices)]
         def dfs(vertice):
+            if has_cycle[0]:
+                return 
             visit[vertice]=1
             for neighboor in Graph[vertice]:
                 if visit[neighboor]==0:
                     dfs(neighboor)
+                elif visited[neighbor] == 1:# Found a back edge → Cycle detected
+                    has_cycle[0] = True
+                    return
             stack.append(vertice)
         for i in range(vertices):
             if visit[i]==0:
